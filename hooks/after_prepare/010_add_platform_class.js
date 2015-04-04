@@ -66,7 +66,6 @@ function findClassAttr(bodyTag) {
 }
 
 if (rootdir) {
-
   // go through each of the platform directories that have been prepared
   var platforms = (process.env.CORDOVA_PLATFORMS ? process.env.CORDOVA_PLATFORMS.split(',') : []);
 

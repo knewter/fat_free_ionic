@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', ['$scope', 'MockContacts', function($scope, Contacts) {
+.controller('ContactsCtrl', ['$scope', 'Contacts', function($scope, Contacts) {
   Contacts.all().then(function(contacts){
     $scope.contacts = contacts;
   });

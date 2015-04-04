@@ -1,7 +1,28 @@
 angular.module('starter.services', [])
 
-.factory('MockContacts', function($q) {
+.factory('Contacts', ['$http', '$q', function($http, $q) {
+  var FFCRM_URL = 'http://192.168.1.23:3000';
   var credentials = "VN4CzzwwmeYs9OVcJTBy"; // This is the single_access_token for your user in FFCRM
+
+  return {
+    all: function() {
+      var deferred = $q.defer();
+
+      $http.get(FFCRM_URL + '/contacts.json', { params: { user_credentials: credentials } })
+        .success(function(data, status, headers, config) {
+          deferred.resolve(data);
+        })
+        .error(function(data, status, headers, config) {
+          deferred.reject();
+        });
+
+        return deferred.promise;
+    }
+  }
+}])
+
+
+.factory('MockContacts', ['$q', function($q) {
   var contacts = [
     {
       "contact":
@@ -45,7 +66,7 @@ angular.module('starter.services', [])
       return deferred.promise;
     }
   }
-})
+}])
 
 .factory('Chats', function() {
   // Might use a resource here that returns a JSON array
