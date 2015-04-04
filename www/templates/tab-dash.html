@@ -1,0 +1,15 @@
+<ion-view view-title="Dashboard">
+  <ion-content class="padding">
+    <div ng-repeat="contact in contacts" class="list card">
+      <div class="item item-divider">{{contact.contact.first_name}} {{contact.contact.last_name}}</div>
+      <div class="item item-body">
+        <div>
+          Phone: {{contact.contact.phone}}
+        </div>
+        <div>
+          Email: {{contact.contact.email}}
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
