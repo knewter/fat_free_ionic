@@ -68,6 +68,48 @@ angular.module('starter.services', [])
   }
 }])
 
+.factory('MockTasks', ['$q', function($q) {
+  var tasks = {
+    "overdue": [],
+    "due_asap": [
+      {
+        "task": {
+          "assigned_to": 1,
+          "id": 1,
+          "user_id": 1,
+          "completed_by": null,
+          "name": "Ping him and see if they need anything",
+          "asset_id": null,
+          "asset_type": "",
+          "priority": null,
+          "category": "email",
+          "bucket": "due_asap",
+          "due_at": null,
+          "completed_at": null,
+          "deleted_at": null,
+          "created_at": "2015-04-04T18:07:59.342-05:00",
+          "updated_at": "2015-04-04T18:07:59.342-05:00",
+          "background_info": null,
+          "subscribed_users": []
+        }
+      }
+    ],
+    "due_today": [],
+    "due_tomorrow": [],
+    "due_this_week": [],
+    "due_next_week": [],
+    "due_later": []
+  };
+
+  return {
+    all: function() {
+      var deferred = $q.defer();
+      deferred.resolve(tasks);
+      return deferred.promise;
+    }
+  }
+}])
+
 .factory('Chats', function() {
   // Might use a resource here that returns a JSON array
 
