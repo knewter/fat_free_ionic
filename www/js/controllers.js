@@ -6,6 +6,15 @@ angular.module('starter.controllers', [])
   });
 }])
 
+.controller('ContactDetailCtrl', ['$scope', '$stateParams', 'Contacts', 'MockComments', function($scope, $stateParams, Contacts, Comments) {
+  Contacts.get($stateParams.contactId).then(function(contact){
+    $scope.contact = contact;
+  });
+  Comments.get($stateParams.contactId).then(function(comments){
+    $scope.comments = comments;
+  });
+}])
+
 .controller('TasksCtrl', ['$scope', 'Tasks', function($scope, Tasks) {
   Tasks.all().then(function(tasks){
     $scope.tasks = tasks;

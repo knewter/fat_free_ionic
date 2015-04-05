@@ -1,13 +1,11 @@
 <ion-view view-title="Contacts">
-  <ion-content class="padding">
-    <div ng-repeat="contact in contacts" class="list card">
-      <div class="item item-divider">{{contact.contact.first_name}} {{contact.contact.last_name}}</div>
-      <div class="item item-body">
-        <div class="button-bar">
-          <a class="button icon-left ion-ios-telephone" ng-href="tel:{{contact.contact.phone}}">{{contact.contact.phone}}</a>
-          <a class="button icon-left ion-ios-email" ng-href="mailto:{{contact.contact.email}}">{{contact.contact.email}}</a>
-        </div>
-      </div>
-    </div>
+  <ion-content>
+    <ion-list>
+      <ion-item class="item-avatar" ng-repeat="contact in contacts" type="item-text-wrap" href="#/tab/contacts/{{contact.contact.id}}">
+        <img src="http://www.gravatar.com/avatar/{{ contact.contact.email | gravatar }}">
+        <h2>{{contact.contact.first_name}} {{contact.contact.last_name}}</h2>
+        <p>{{contact.contact.title}}</p>
+      </ion-item>
+    </ion-list>
   </ion-content>
 </ion-view>

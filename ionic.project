@@ -1,4 +1,12 @@
 {
   "name": "fat_free_ionic",
-  "app_id": "956e67a4"
+  "app_id": "956e67a4",
+  "gulpStartupTasks": [
+    "sass",
+    "watch"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*"
+  ]
 }
