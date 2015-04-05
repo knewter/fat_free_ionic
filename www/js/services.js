@@ -1,9 +1,10 @@
+var FFCRM_URL = 'http://192.168.1.23:3000';
+var credentials = "VN4CzzwwmeYs9OVcJTBy"; // This is the single_access_token for your user in FFCRM
+
+
 angular.module('starter.services', [])
 
 .factory('Contacts', ['$http', '$q', function($http, $q) {
-  var FFCRM_URL = 'http://192.168.1.23:3000';
-  var credentials = "VN4CzzwwmeYs9OVcJTBy"; // This is the single_access_token for your user in FFCRM
-
   return {
     all: function() {
       var deferred = $q.defer();
@@ -68,6 +69,39 @@ angular.module('starter.services', [])
   }
 }])
 
+.factory('Tasks', ['$http', '$q', function($http, $q) {
+  return {
+    all: function() {
+      var deferred = $q.defer();
+
+      $http.get(FFCRM_URL + '/tasks.json', { params: { user_credentials: credentials } })
+        .success(function(data, status, headers, config) {
+          deferred.resolve(data);
+        })
+        .error(function(data, status, headers, config) {
+          deferred.reject();
+        });
+
+        return deferred.promise;
+    },
+
+    get: function(id) {
+      var deferred = $q.defer();
+
+      $http.get(FFCRM_URL + '/tasks/' + id + '.json', { params: { user_credentials: credentials } })
+        .success(function(data, status, headers, config) {
+          deferred.resolve(data);
+        })
+        .error(function(data, status, headers, config) {
+          deferred.reject();
+        });
+
+        return deferred.promise;
+    }
+  }
+}])
+
+
 .factory('MockTasks', ['$q', function($q) {
   var tasks = {
     "overdue": [],
@@ -105,6 +139,12 @@ angular.module('starter.services', [])
     all: function() {
       var deferred = $q.defer();
       deferred.resolve(tasks);
+      return deferred.promise;
+    },
+
+    get: function(id) {
+      var deferred = $q.defer();
+      deferred.resolve(tasks.due_asap[0]);
       return deferred.promise;
     }
   }

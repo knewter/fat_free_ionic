@@ -6,15 +6,17 @@ angular.module('starter.controllers', [])
   });
 }])
 
-.controller('TasksCtrl', ['$scope', 'MockTasks', function($scope, Tasks) {
+.controller('TasksCtrl', ['$scope', 'Tasks', function($scope, Tasks) {
   Tasks.all().then(function(tasks){
     $scope.tasks = tasks;
   });
 }])
 
-.controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
-  $scope.chat = Chats.get($stateParams.chatId);
-})
+.controller('TaskDetailCtrl', ['$scope', '$stateParams', 'Tasks', function($scope, $stateParams, Tasks) {
+  Tasks.get($stateParams.taskId).then(function(task){
+    $scope.task = task;
+  });
+}])
 
 .controller('AccountCtrl', function($scope) {
   $scope.settings = {
