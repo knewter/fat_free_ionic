@@ -2,8 +2,6 @@ angular.module('starter.directives', [])
 
 .directive('taskList', [function() {
   function link(scope, element, attrs){
-    console.log('foo');
-    console.log(scope.tasks);
   }
 
   return {

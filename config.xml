@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <widget id="com.ionicframework.fatfreeionic721945" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>fat_free_ionic</name>
+  <name>Isotope11 FatFreeCRM App</name>
   <description>
-        An Ionic Framework and Cordova project.
+        An app for interacting with a FatFreeCRM installation.
     </description>
-  <author email="hi@ionicframework" href="http://ionicframework.com/">
-      Ionic Framework Team
+  <author email="josh@isotope11.com" href="http://isotope11.com/">
+      Isotope11
     </author>
   <content src="index.html"/>
   <access origin="*"/>
