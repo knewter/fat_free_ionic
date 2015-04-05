@@ -89,6 +89,38 @@ angular.module('starter.services', [])
   }
 }])
 
+.factory('Leads', ['$http', '$q', function($http, $q) {
+  return {
+    all: function() {
+      var deferred = $q.defer();
+
+      $http.get(FFCRM_URL + '/leads.json', { params: { user_credentials: credentials } })
+        .success(function(data, status, headers, config) {
+          deferred.resolve(data);
+        })
+        .error(function(data, status, headers, config) {
+          deferred.reject();
+        });
+
+        return deferred.promise;
+    },
+
+    get: function(id) {
+      var deferred = $q.defer();
+
+      $http.get(FFCRM_URL + '/leads/' + id + '.json', { params: { user_credentials: credentials } })
+        .success(function(data, status, headers, config) {
+          deferred.resolve(data);
+        })
+        .error(function(data, status, headers, config) {
+          deferred.reject();
+        });
+
+        return deferred.promise;
+    }
+  }
+}])
+
 .factory('Tasks', ['$http', '$q', function($http, $q) {
   return {
     all: function() {
@@ -166,6 +198,26 @@ angular.module('starter.services', [])
       var deferred = $q.defer();
       deferred.resolve(tasks.due_asap[0]);
       return deferred.promise;
+    }
+  }
+}])
+
+.factory('Comments', ['$http', '$q', function($http, $q) {
+  return {
+    all: function(type, id) {
+      var deferred = $q.defer();
+      var params =  { user_credentials: credentials };
+      params[type] = id;
+
+      $http.get(FFCRM_URL + '/comments.json', { params: params })
+        .success(function(data, status, headers, config) {
+          deferred.resolve(data);
+        })
+        .error(function(data, status, headers, config) {
+          deferred.reject();
+        });
+
+        return deferred.promise;
     }
   }
 }])

@@ -57,6 +57,25 @@ angular.module('starter', ['ionic', 'angular-md5', 'starter.controllers', 'start
       }
     })
 
+  .state('tab.leads', {
+      url: '/leads',
+      views: {
+        'tab-leads': {
+          templateUrl: 'templates/tab-leads.html',
+          controller: 'LeadsCtrl'
+        }
+      }
+    })
+    .state('tab.lead-detail', {
+      url: '/leads/:leadId',
+      views: {
+        'tab-leads': {
+          templateUrl: 'templates/lead-detail.html',
+          controller: 'LeadDetailCtrl'
+        }
+      }
+    })
+
   .state('tab.tasks', {
       url: '/tasks',
       views: {

@@ -4,30 +4,30 @@
   The FriendsCtrl pulls data from the Friends service (service.js)
   The Friends service returns an array of friend data
 -->
-<ion-view view-title="{{contact.contact.first_name}} {{contact.contact.last_name}}">
+<ion-view view-title="{{lead.lead.first_name}} {{lead.lead.last_name}}">
   <ion-content class="padding">
     <div class="card contact-card">
       <div class="item item-divider">
         <div class="row">
           <div class="col col-25">
-            <img src="http://www.gravatar.com/avatar/{{ contact.contact.email | gravatar }}">
+            <img src="http://www.gravatar.com/avatar/{{ lead.lead.email | gravatar }}">
           </div>
           <div class="col col-75">
             <h2>
-              {{contact.contact.first_name}} {{contact.contact.last_name}}
+              {{lead.lead.first_name}} {{lead.lead.last_name}}
             </h2>
             <h3>
-              {{contact.contact.title}}
+              {{lead.lead.title}}
             </h3>
           </div>
         </div>
       </div>
       <div class="item item-text-wrap">
         <div class="button-bar bar-positive">
-          <a class="button icon ion-android-call" ng-href="tel:{{contact.contact.phone}}"></a>
-          <a class="button icon ion-email" ng-href="mailto:{{contact.contact.email}}"></a>
-          <a class="button icon ion-social-linkedin" ng-href="{{contact.contact.linkedin}}"></a>
-          <a class="button icon ion-social-twitter" ng-href="{{contact.contact.twitter}}"></a>
+          <a class="button icon ion-android-call" ng-href="tel:{{lead.lead.phone}}"></a>
+          <a class="button icon ion-email" ng-href="mailto:{{lead.lead.email}}"></a>
+          <a class="button icon ion-social-linkedin" ng-href="{{lead.lead.linkedin}}"></a>
+          <a class="button icon ion-social-twitter" ng-href="{{lead.lead.twitter}}"></a>
         </div>
       </div>
       <div class="list list-inset">

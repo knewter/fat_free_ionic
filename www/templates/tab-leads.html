@@ -1,0 +1,11 @@
+<ion-view view-title="Leads">
+  <ion-content>
+    <ion-list>
+      <ion-item class="item-avatar" ng-repeat="lead in leads" type="item-text-wrap" href="#/tab/leads/{{lead.lead.id}}">
+        <img src="http://www.gravatar.com/avatar/{{ lead.lead.email | gravatar }}">
+        <h2>{{lead.lead.first_name}} {{lead.lead.last_name}}</h2>
+        <p>{{lead.lead.title}}</p>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
